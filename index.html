@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Grupo Limpia — Servicios de limpieza premium y ecológica en Cartagena. Protocolos profesionales, fórmula eco biodegradable.">
-    <title>Grupo Limpia | Limpieza Premium y Ecológica en Cartagena</title>
+    <meta name="description" content="Grupo Limpia — Servicios profesionales de limpieza premium y soluciones eco-biodegradables a nivel nacional. Conoce nuestra fórmula exclusiva.">
+    <title>Grupo Limpia | Limpieza Profesional Premium y Ecológica</title>
     
-    <!-- Open Graph / SEO -->
-    <meta property="og:title" content="Grupo Limpia | Limpieza Premium y Ecológica en Cartagena">
-    <meta property="og:description" content="Servicios de limpieza con fórmula 100% biodegradable. Protocolos profesionales para hogares, restaurantes y empresas.">
+    <meta property="og:title" content="Grupo Limpia | Limpieza Profesional Premium y Ecológica">
+    <meta property="og:description" content="Fórmula 100% biodegradable. Servicios corporativos, industriales y de alta gama. Proyección y cobertura nacional.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://TU_USUARIO.github.io/grupo-limpia-web/">
+    <meta property="og:url" content="https://riano200612-jpg.github.io/grupo-limpia/">
     <meta property="og:image" content="proyecto-limpia.webp">
     <meta name="twitter:card" content="summary_large_image">
     
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <link rel="preload" href="hero-video.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="cartagena fl.mp4" as="video" type="video/mp4">
 
     <style>
         :root {
@@ -59,10 +57,7 @@
             position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
             overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
         }
-        a:focus-visible, button:focus-visible, input:focus-visible {
-            outline: 3px solid var(--eco); outline-offset: 2px;
-        }
-
+        
         #navbar {
             transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
             color: #ffffff;
@@ -92,13 +87,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transform: scale(1.05);
+            transform: scale(1.02);
             z-index: 0;
         }
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(15,26,20,0.6), rgba(15,26,20,0.4), rgba(15,26,20,0.8));
+            background: linear-gradient(to bottom, rgba(15,26,20,0.65), rgba(15,26,20,0.4), rgba(15,26,20,0.85));
             z-index: 1;
         }
 
@@ -115,7 +110,6 @@
             transition: 0.3s;
             animation: pulse 2s infinite;
         }
-        .whatsapp-float:hover { transform: scale(1.08); animation: none; box-shadow: 0 12px 30px rgba(37,211,102,0.6); }
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
             70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
@@ -134,8 +128,6 @@
 
         .service-card, .testimonial-card { transition: transform 0.45s ease, box-shadow 0.45s ease; }
         .service-card:hover, .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.06); }
-        .service-card .icon-wrap { width: 52px; height: 52px; background: var(--eco-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--eco-dark); font-size: 20px; transition: 0.4s ease; }
-        .service-card:hover .icon-wrap { background: var(--eco); color: #fff; transform: rotate(-5deg) scale(1.1); }
         
         .eco-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--eco-light); color: var(--eco-dark); border-radius: 999px; padding: 5px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
         .section-line { width: 40px; height: 2px; background: var(--eco); margin: 16px auto 0; border-radius: 2px; }
@@ -146,15 +138,10 @@
         .faq-item.active .faq-content { max-height: 250px; padding-bottom: 1.5rem; }
         .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--eco); }
 
-        .form-input { width: 100%; padding: 16px 20px; background: #14221a; border: 1px solid #233a2d; border-radius: 12px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: 0.3s ease; }
-        .form-input::placeholder { color: #5a7062; }
+        .form-input { width: 100%; padding: 16px 20px; background: #14221a; border: 1px solid #233a2d; border-radius: 12px; color: #fff; font-size: 14px; outline: none; transition: 0.3s ease; }
         .form-input:focus { border-color: var(--eco); background: #1a2a22; box-shadow: 0 0 0 4px rgba(16,185,129,0.1); }
 
         #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--eco); z-index: 9998; width: 0%; transition: width 0.15s ease-out; }
-
-        @media(max-width:768px){
-            .whatsapp-float { width: 55px; height: 55px; right: 18px; bottom: 18px; font-size: 25px; }
-        }
     </style>
 </head>
 <body>
@@ -170,6 +157,7 @@
                 <a href="#servicios" class="nav-link">Servicios</a>
                 <a href="#producto-estrella" class="nav-link">Fórmula Eco</a>
                 <a href="#video-promocional" class="nav-link">Nuestro Método</a>
+                <a href="#expansion" class="nav-link">Expansión</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contacto" class="nav-link">Contacto</a>
             </div>
@@ -191,6 +179,7 @@
                 <a href="#servicios" class="hover:text-emerald-600 transition mobile-link">Servicios</a>
                 <a href="#producto-estrella" class="hover:text-emerald-600 transition mobile-link">Fórmula Eco</a>
                 <a href="#video-promocional" class="hover:text-emerald-600 transition mobile-link">Nuestro Método</a>
+                <a href="#expansion" class="hover:text-emerald-600 transition mobile-link">Expansión</a>
                 <a href="#faq" class="hover:text-emerald-600 transition mobile-link">FAQ</a>
                 <a href="#contacto" class="text-white text-center py-3.5 rounded-xl font-medium mobile-link" style="background:var(--eco)">
                     Solicitar Cotización
@@ -200,15 +189,15 @@
     </nav>
 
     <header class="relative isolate min-h-screen overflow-hidden flex items-center justify-center text-center px-6" style="background-color: #0f1a14;">
-        <video autoplay muted loop playsinline preload="auto" class="hero-video">
-            <source src="hero-video.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="cartagena fl.mp4" type="video/mp4">
         </video>
         
         <div class="hero-overlay"></div>
         
         <div class="relative z-10 max-w-5xl mx-auto pt-16">
             <div class="reveal inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-xs uppercase tracking-widest mb-8 backdrop-blur-md">
-                <i class="fas fa-leaf"></i> Limpieza Premium · Cartagena
+                <i class="fas fa-leaf"></i> Limpieza Premium · Estándar Corporativo
             </div>
             
             <h1 class="font-display reveal delay-1 text-4xl md:text-7xl font-light leading-tight text-white">
@@ -217,7 +206,7 @@
             </h1>
             
             <p class="reveal delay-2 text-white/80 text-base md:text-xl leading-relaxed max-w-2xl mx-auto mt-8 font-light">
-                Protocolos ecológicos, maquinaria industrial y resultados impecables para hogares, restaurantes y empresas.
+                Protocolos ecológicos avanzados y soluciones industriales de alta gama para marcas y hogares exigentes.
             </p>
             
             <div class="reveal delay-3 flex flex-col sm:flex-row gap-5 justify-center mt-12">
@@ -225,7 +214,7 @@
                     Solicitar Cotización
                 </a>
                 <a href="#video-promocional" class="px-8 py-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition flex items-center justify-center gap-2">
-                    <i class="fas fa-play text-xs text-emerald-400"></i> Ver Video
+                    <i class="fas fa-play text-xs text-emerald-400"></i> Ver Método Operativo
                 </a>
             </div>
         </div>
@@ -235,19 +224,19 @@
         <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
             <div class="pl-6 border-l-2 border-emerald-500 reveal">
                 <p class="font-display text-4xl font-semibold text-gray-900">+350</p>
-                <p class="text-sm text-gray-500 mt-2 font-light">Clientes satisfechos</p>
+                <p class="text-sm text-gray-500 mt-2 font-light">Clientes Satisfechos</p>
             </div>
             <div class="pl-6 border-l-2 border-emerald-500 reveal delay-1">
                 <p class="font-display text-4xl font-semibold text-gray-900">100%</p>
-                <p class="text-sm text-gray-500 mt-2 font-light">Biodegradable</p>
+                <p class="text-sm text-gray-500 mt-2 font-light">Eco Biodegradable</p>
             </div>
             <div class="pl-6 border-l-2 border-emerald-500 reveal delay-2">
                 <p class="font-display text-4xl font-semibold text-gray-900">+5</p>
-                <p class="text-sm text-gray-500 mt-2 font-light">Años de experiencia</p>
+                <p class="text-sm text-gray-500 mt-2 font-light">Años de Trayectoria</p>
             </div>
             <div class="pl-6 border-l-2 border-emerald-500 reveal delay-3">
-                <p class="font-display text-4xl font-semibold text-gray-900">0</p>
-                <p class="text-sm text-gray-500 mt-2 font-light">Tóxicos usados</p>
+                <p class="font-display text-4xl font-semibold text-gray-900">Nivel</p>
+                <p class="text-sm text-gray-500 mt-2 font-light">Corporativo Nacional</p>
             </div>
         </div>
     </section>
@@ -256,10 +245,10 @@
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div class="relative reveal-left">
                 <div class="absolute -inset-4 rounded-3xl opacity-10 blur-2xl" style="background:var(--eco)"></div>
-                <img src="proyecto-limpia.webp" alt="Producto desengrasante ecológico en acción" class="relative rounded-2xl shadow-2xl w-full object-cover aspect-square md:aspect-auto border border-gray-100" loading="lazy" decoding="async">
+                <img src="proyecto-limpia.webp" alt="Fórmula premium de Grupo Limpia" class="relative rounded-2xl shadow-2xl w-full object-cover aspect-square md:aspect-auto border border-gray-100" loading="lazy">
                 <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl hidden md:flex flex-col items-center border border-gray-50">
                     <p class="font-display text-3xl font-semibold" style="color:var(--eco)">100%</p>
-                    <p class="text-xs text-gray-500 font-medium tracking-wide uppercase mt-1">Biodegradable</p>
+                    <p class="text-xs text-gray-500 font-medium tracking-wide uppercase mt-1">Sostenible</p>
                 </div>
             </div>
 
@@ -270,7 +259,7 @@
                     <em style="color:var(--eco)">Limpia Grasa</em> Exclusivo
                 </h2>
                 <p class="text-gray-500 font-light mb-10 leading-relaxed text-base md:text-lg">
-                    No utilizamos químicos abrasivos tradicionales. Nuestro producto estrella es un desengrasante de fórmula ecológica altamente concentrada, diseñado para cocinas industriales, restaurantes y hogares premium.
+                    Sin químicos abrasivos tradicionales. Nuestro producto estrella es una fórmula de ingeniería ecológica altamente concentrada, ideal para cadenas de restaurantes, hotelería y mantenimiento corporativo exigente.
                 </p>
                 <ul class="space-y-6">
                     <li class="flex items-start gap-5">
@@ -279,7 +268,7 @@
                         </span>
                         <div>
                             <strong class="text-gray-900 font-medium text-lg">Acción profunda</strong>
-                            <p class="text-gray-500 font-light text-sm mt-1">Desintegra grasa carbonizada y aceites en segundos.</p>
+                            <p class="text-gray-500 font-light text-sm mt-1">Desintegra grasas pesadas y aceites industriales en segundos.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-5">
@@ -287,17 +276,8 @@
                             <i class="fas fa-shield-halved text-sm" style="color:var(--eco-dark)"></i>
                         </span>
                         <div>
-                            <strong class="text-gray-900 font-medium text-lg">Cuidado de superficies</strong>
-                            <p class="text-gray-500 font-light text-sm mt-1">Protege acero inoxidable, mármol y granito sin rayones.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-5">
-                        <span class="mt-1 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--eco-light)">
-                            <i class="fas fa-seedling text-sm" style="color:var(--eco-dark)"></i>
-                        </span>
-                        <div>
-                            <strong class="text-gray-900 font-medium text-lg">Libre de tóxicos</strong>
-                            <p class="text-gray-500 font-light text-sm mt-1">Seguro para áreas de preparación de alimentos.</p>
+                            <strong class="text-gray-900 font-medium text-lg">Protección Certificada</strong>
+                            <p class="text-gray-500 font-light text-sm mt-1">Cuida acabados de acero, mármol y superficies de alto valor.</p>
                         </div>
                     </li>
                 </ul>
@@ -307,18 +287,17 @@
 
     <section id="video-promocional" class="py-24 px-6 md:px-12 bg-white">
         <div class="max-w-5xl mx-auto text-center">
-            <span class="eco-badge mb-5"><i class="fas fa-film text-xs"></i> Procedimientos en Acción</span>
+            <span class="eco-badge mb-5"><i class="fas fa-gears text-xs"></i> Eficiencia e Infraestructura</span>
             <h2 class="font-display text-4xl md:text-5xl font-light mb-12 reveal">
-                Nuestro Método <em style="color:var(--eco)">Impecable</em>
+                Maquinaria de <em style="color:var(--eco)">Última Generación</em>
             </h2>
-            <div class="overflow-hidden rounded-3xl shadow-2xl reveal group">
-                <video autoplay muted loop playsinline preload="auto" class="w-full object-cover aspect-video bg-gray-900">
-                    <source src="video-promocional.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video.
+            <div class="overflow-hidden rounded-3xl shadow-2xl reveal group bg-black relative aspect-video max-w-4xl mx-auto border border-gray-100">
+                <video id="main-comercial" controls poster="proyecto-limpia.webp" playsinline class="w-full h-full object-cover">
+                    <source src="Flow_202605021414.mp4" type="video/mp4">
                 </video>
             </div>
             <p class="mt-8 text-gray-500 font-light text-base md:text-lg reveal max-w-2xl mx-auto">
-                Observa cómo nuestra fórmula transforma superficies en segundos sin liberar vapores tóxicos al medio ambiente.
+                Despliegue operativo real: operarios calificados, tecnología avanzada y un control riguroso de cada detalle.
             </p>
         </div>
     </section>
@@ -326,7 +305,7 @@
     <section id="servicios" class="py-24 px-6 md:px-12 bg-gray-50 border-t border-gray-100">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <span class="eco-badge mb-4"><i class="fas fa-broom text-xs"></i> Lo que ofrecemos</span>
+                <span class="eco-badge mb-4"><i class="fas fa-broom text-xs"></i> Cobertura de Servicios</span>
                 <h2 class="font-display text-4xl md:text-5xl font-light text-gray-900 mt-4">Soluciones Integrales</h2>
                 <div class="section-line"></div>
             </div>
@@ -336,34 +315,61 @@
                     <div class="icon-wrap mb-6"><i class="fas fa-building"></i></div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-900">Limpieza Corporativa</h3>
                     <p class="text-gray-500 font-light leading-relaxed text-sm">
-                        Mantenimiento de oficinas con protocolos discretos y productos sin olores invasivos.
+                        Mantenimiento especializado para sedes administrativas, oficinas corporativas y locales comerciales.
                     </p>
                 </div>
                 <div class="service-card bg-white p-10 rounded-2xl border border-gray-100 reveal delay-1">
                     <div class="icon-wrap mb-6"><i class="fas fa-kitchen-set"></i></div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-900">Saneamiento de Cocinas</h3>
                     <p class="text-gray-500 font-light leading-relaxed text-sm">
-                        Limpieza profunda de estufas y campanas utilizando nuestro potente limpia grasa eco-amigable.
+                        Intervención profunda en plantas de alimentos, cocinas industriales y restaurantes de alta gama.
                     </p>
                 </div>
                 <div class="service-card bg-white p-10 rounded-2xl border border-gray-100 reveal delay-2">
                     <div class="icon-wrap mb-6"><i class="fas fa-hard-hat"></i></div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-900">Limpieza Post-Obra</h3>
                     <p class="text-gray-500 font-light leading-relaxed text-sm">
-                        Eliminación de escombros finos y polvillo, dejando tu espacio completamente impecable y listo.
+                        Acondicionamiento final y remoción de polvillo fino para constructoras y entregas inmobiliarias de lujo.
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="reveal w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl h-72 md:h-96 relative">
-                <img src="proyecto-2.webp" alt="Equipos de limpieza profesional" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-10 md:p-14">
-                    <div>
-                        <h3 class="text-white font-display text-2xl md:text-4xl font-light mb-2">Equipamiento de vanguardia</h3>
-                        <p class="text-white/80 text-sm md:text-base font-light max-w-md">Utilizamos maquinaria industrial de última tecnología para garantizar acabados excepcionales.</p>
+    <section id="expansion" class="py-24 px-6 md:px-12 bg-neutral-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.08),transparent_50%)]"></div>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+            
+            <div class="lg:col-span-5 reveal-left">
+                <span class="eco-badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6"><i class="fas fa-earth-americas text-xs"></i> Expansión Nacional</span>
+                <h2 class="font-display text-4xl md:text-5xl font-light mb-6 leading-tight">
+                    El arte de cuidar<br>
+                    <em style="color:var(--eco); font-style: normal;">lo que amas</em>
+                </h2>
+                <p class="text-neutral-400 font-light text-base md:text-lg mb-8 leading-relaxed">
+                    Nacimos para transformar la forma en que se concibe el cuidado de los espacios. Con un estándar sofisticado y procesos eco-biodegradables alineados con las exigencias globales, estamos listos para llevar la experiencia premium de Grupo Limpia a cada rincón del país.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-emerald-400"></i>
+                        <span class="text-sm font-medium text-neutral-300">Estándar Homologado</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-emerald-400"></i>
+                        <span class="text-sm font-medium text-neutral-300">Distribución de Fórmula Eco</span>
                     </div>
                 </div>
             </div>
+
+            <div class="lg:col-span-7 reveal-right">
+                <div class="overflow-hidden rounded-3xl shadow-2xl bg-black border border-neutral-800 aspect-video relative group">
+                    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                        <source src="e9d7d7e9-8a8a-4a75-adaa-16834dcbed32.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-40 transition duration-500"></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -378,61 +384,11 @@
             <div class="space-y-2 reveal delay-1">
                 <div class="faq-item">
                     <button class="faq-btn">¿Qué incluye la limpieza post-obra? <i class="fas fa-plus faq-icon"></i></button>
-                    <div class="faq-content">Incluye remoción de polvo fino, limpieza de pisos, lavado de ventanas y desinfección de baños y cocinas para que el lugar quede habitable inmediatamente.</div>
+                    <div class="faq-content">Incluye remoción integral de polvo fino en suspensión, lavado de ventanales estructurales, decapado ecológico de pisos y desinfección total de áreas comunes.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-btn">¿Sus productos son seguros para mascotas y niños? <i class="fas fa-plus faq-icon"></i></button>
-                    <div class="faq-content">Absolutamente. Toda nuestra línea de productos es 100% biodegradable y libre de químicos tóxicos y vapores fuertes.</div>
-                </div>
-                <div class="faq-item border-b-0">
-                    <button class="faq-btn">¿Debo proporcionar los implementos de aseo? <i class="fas fa-plus faq-icon"></i></button>
-                    <div class="faq-content">No, Grupo Limpia se encarga de llevar toda la maquinaria industrial, paños y nuestra propia línea de productos ecológicos.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonios" class="py-24 px-6 md:px-12 bg-gray-50 border-t border-gray-100">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <span class="eco-badge mb-4"><i class="fas fa-star text-xs"></i> Clientes</span>
-                <h2 class="font-display text-4xl md:text-5xl font-light text-gray-900 mt-4">Lo que dicen de nosotros</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="testimonial-card reveal bg-white p-8">
-                    <div class="stars mb-4 text-sm text-emerald-500">★★★★★</div>
-                    <p class="text-gray-600 font-light leading-relaxed text-sm mb-6 italic">"Increíble. Dejaron la cocina de nuestro restaurante como nueva. El producto no tiene olor invasivo y los resultados son inmediatos."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold shadow-md" style="background:var(--eco)">M</div>
-                        <div>
-                            <p class="text-sm font-bold text-gray-900">Mariana R.</p>
-                            <p class="text-xs text-gray-400 mt-0.5">Restaurante La Bahía</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal delay-1 bg-white p-8">
-                    <div class="stars mb-4 text-sm text-emerald-500">★★★★★</div>
-                    <p class="text-gray-600 font-light leading-relaxed text-sm mb-6 italic">"Profesionalismo total. Llegaron puntual, trabajaron con discreción y el resultado en nuestras oficinas fue impecable."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold shadow-md" style="background:var(--eco)">C</div>
-                        <div>
-                            <p class="text-sm font-bold text-gray-900">Carlos M.</p>
-                            <p class="text-xs text-gray-400 mt-0.5">Oficinas Bocagrande</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal delay-2 bg-white p-8">
-                    <div class="stars mb-4 text-sm text-emerald-500">★★★★★</div>
-                    <p class="text-gray-600 font-light leading-relaxed text-sm mb-6 italic">"Contratamos el servicio post-obra y superaron todas las expectativas. El polvillo de construcción desapareció completamente."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold shadow-md" style="background:var(--eco)">S</div>
-                        <div>
-                            <p class="text-sm font-bold text-gray-900">Sandra V.</p>
-                            <p class="text-xs text-gray-400 mt-0.5">Propietaria, Manga</p>
-                        </div>
-                    </div>
+                    <button class="faq-btn">¿Los productos cuentan con fichas técnicas seguras? <i class="fas fa-plus faq-icon"></i></button>
+                    <div class="faq-content">Totalmente. Toda nuestra línea de insumos es libre de agentes químicos abrasivos, 100% biodegradable y completamente segura para la manipulación en entornos alimenticios o corporativos.</div>
                 </div>
             </div>
         </div>
@@ -441,9 +397,9 @@
     <section id="contacto" class="py-24 px-6 md:px-12 relative" style="background:#0f1a14">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <div class="reveal-left relative z-10">
-                <span class="eco-badge mb-6 bg-emerald-900/50 text-emerald-300 border border-emerald-800"><i class="fas fa-paper-plane text-xs"></i> Hablemos</span>
-                <h2 class="font-display text-4xl md:text-5xl font-light mb-5 text-white mt-4">Cotiza tu servicio <em style="color:var(--eco)">hoy</em></h2>
-                <p class="text-gray-400 font-light mb-10 leading-relaxed text-base md:text-lg">Déjanos tus datos y un especialista te contactará para evaluar tu espacio sin compromiso.</p>
+                <span class="eco-badge mb-6 bg-emerald-900/50 text-emerald-300 border border-emerald-800"><i class="fas fa-paper-plane text-xs"></i> Cotizaciones</span>
+                <h2 class="font-display text-4xl md:text-5xl font-light mb-5 text-white mt-4">Inicie un proyecto con <em style="color:var(--eco); font-style:normal;">nosotros</em></h2>
+                <p class="text-gray-400 font-light mb-10 leading-relaxed text-base md:text-lg">Déjanos tus datos corporativos o residenciales. Un consultor estructurará una oferta técnica a la medida.</p>
 
                 <form id="contact-form" class="space-y-5" novalidate>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -457,55 +413,53 @@
                         </div>
                     </div>
                     <div>
-                        <label for="f-company" class="sr-only">Empresa o establecimiento (opcional)</label>
-                        <input id="f-company" type="text" placeholder="Empresa o establecimiento (opcional)" class="form-input">
+                        <label for="f-company" class="sr-only">Empresa / Organización (opcional)</label>
+                        <input id="f-company" type="text" placeholder="Empresa / Organización (opcional)" class="form-input">
                     </div>
                     <div>
-                        <label for="f-area" class="sr-only">¿Qué área necesitas limpiar?</label>
-                        <input id="f-area" type="text" placeholder="¿Qué área necesitas limpiar? (Ej. Cocina, Oficina)" class="form-input" required>
+                        <label for="f-area" class="sr-only">¿Qué área o proyecto necesita cotizar?</label>
+                        <input id="f-area" type="text" placeholder="¿Qué área o proyecto necesita cotizar? (Ej. Hotel, Restaurante, Sede)" class="form-input" required>
                     </div>
                     <div>
                         <label for="f-message" class="sr-only">Detalles adicionales</label>
-                        <textarea id="f-message" rows="4" placeholder="Detalles adicionales…" class="form-input resize-none"></textarea>
+                        <textarea id="f-message" rows="4" placeholder="Detalles o requerimientos especiales del servicio…" class="form-input resize-none"></textarea>
                     </div>
                     
                     <button type="submit" class="w-full font-medium py-4 rounded-xl text-white transition-all hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-900 flex items-center justify-center gap-3 mt-4" style="background:var(--eco)">
-                        <i class="fab fa-whatsapp text-xl"></i> Enviar solicitud por WhatsApp
+                        <i class="fab fa-whatsapp text-xl"></i> Enviar Solicitud Comercial
                     </button>
-                    <p class="text-gray-500 text-xs text-center font-light mt-4">Al hacer clic, serás redirigido a WhatsApp con tu mensaje pre-armado.</p>
                 </form>
             </div>
 
             <div class="reveal-right h-full min-h-[500px] rounded-2xl overflow-hidden shadow-2xl relative z-10 border border-gray-800">
-                <iframe src="https://maps.google.com/maps?q=Cartagena,Bolivar,Colombia&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; filter: grayscale(80%) contrast(1.2) opacity(0.8);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="http://googleusercontent.com/maps.google.com/2" width="100%" height="100%" style="border:0; filter: grayscale(80%) contrast(1.2) opacity(0.8);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-                    <p class="text-white font-medium text-base flex items-center gap-3"><i class="fas fa-location-dot" style="color:var(--eco)"></i> Cartagena de Indias, Bolívar</p>
-                    <p class="text-gray-400 text-sm mt-2 font-light">Atención en toda la zona urbana e industrial.</p>
+                    <p class="text-white font-medium text-base flex items-center gap-3"><i class="fas fa-location-dot" style="color:var(--eco)"></i> Cobertura Comercial</p>
+                    <p class="text-gray-400 text-sm mt-2 font-light">Sede Principal: Cartagena de Indias. Operaciones a nivel nacional.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-black py-12 px-6 md:px-12 border-t border-gray-900">
+    <footer class="bg-black py-12 px-6 md:px-12 border-t border-gray-900">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="font-display text-2xl font-bold tracking-widest text-white">
                 GRUPO<span style="color:var(--eco)">LIMPIA</span>
             </div>
-            <p class="text-gray-500 text-sm font-light text-center">© 2026 Grupo Limpia · Cartagena, Colombia · Diseño Exclusivo.</p>
+            <p class="text-gray-500 text-sm font-light text-center">© 2026 Grupo Limpia · Colombia · Calidad Premium Certificada.</p>
             <div class="flex gap-6 text-gray-500">
                 <a href="https://wa.me/573001164218" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition text-xl"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" class="hover:text-emerald-400 transition text-xl"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="hover:text-emerald-400 transition text-xl"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <a href="https://wa.me/573001164218?text=Hola,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Grupo%20Limpia" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <a href="https://wa.me/573001164218?text=Hola,%20me%20interesa%20conocer%20los%20servicios%20y%20cobertura%20nacional%20de%20Grupo%20Limpia" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-    // Navbar + Progress bar optimizado
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         const scrollTop = document.documentElement.scrollTop;
@@ -514,7 +468,6 @@
         navbar.classList.toggle('scrolled', scrollTop > 40);
     }, { passive: true });
 
-    // Menú móvil
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const hb1 = document.getElementById('hb1');
@@ -550,7 +503,6 @@
         });
     });
 
-    // FAQ
     document.querySelectorAll('.faq-btn').forEach(button => {
         button.addEventListener('click', () => {
             const item = button.parentElement;
@@ -560,7 +512,6 @@
         });
     });
 
-    // Animaciones al hacer scroll
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -572,7 +523,6 @@
 
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
 
-    // Formulario WhatsApp
     document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -583,37 +533,26 @@
         const message = document.getElementById('f-message').value.trim();
 
         if (!name || !phone || !area) {
-            alert('⚠️ Por favor completa los campos obligatorios: nombre, teléfono y área a limpiar.');
-            if(!name) document.getElementById('f-name').focus();
-            else if(!phone) document.getElementById('f-phone').focus();
-            else document.getElementById('f-area').focus();
+            alert('⚠️ Por favor completa los campos obligatorios: nombre, teléfono y descripción del proyecto.');
             return;
         }
 
         const textLines = [
-            `🌿 *Solicitud de cotización - Grupo Limpia*`,
+            `🌿 *Nueva Solicitud Comercial - Grupo Limpia*`,
             ``,
-            `👤 *Nombre:* ${name}`,
-            `📱 *Teléfono:* ${phone}`,
+            `👤 *Contacto:* ${name}`,
+            `📱 *WhatsApp:* ${phone}`,
             company ? `🏢 *Empresa:* ${company}` : null,
-            `🧹 *Área a limpiar:* ${area}`,
-            message ? `💬 *Detalles:* ${message}` : null,
+            `🧹 *Proyecto/Área:* ${area}`,
+            message ? `💬 *Requerimientos:* ${message}` : null,
             ``,
-            `_Mensaje enviado desde sitio web_`
+            `_Enviado desde el canal digital de expansión_`
         ].filter(line => line !== null);
 
         const text = textLines.join('\n');
         const whatsappUrl = `https://wa.me/573001164218?text=${encodeURIComponent(text)}`;
         
-        try {
-            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-                alert('⚠️ No se pudo abrir WhatsApp. Por favor, escribe directamente al +57 300 116 4218');
-            }
-        } catch (err) {
-            console.error('Error al abrir WhatsApp:', err);
-            alert('⚠️ Ocurrió un error. Contáctanos directamente: +57 300 116 4218');
-        }
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     });
     </script>
 </body>
