@@ -68,38 +68,21 @@
             z-index: 9999;
         }
 
-        /* NAVBAR */
+        /* NAVBAR PREMIUM TRANSITIONS */
         #navbar {
-            transition: all .4s ease;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease, color 0.4s ease;
+        }
+
+        #navbar .nav-link, #navbar .nav-logo {
+            transition: color 0.3s ease;
         }
 
         #navbar.scrolled {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(14px);
-            box-shadow: 0 10px 30px rgba(0,0,0,.05);
-        }
-
-        /* HERO */
-        .hero-video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.05);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,.65),
-                    rgba(0,0,0,.4),
-                    rgba(0,0,0,.8)
-                );
-            backdrop-filter: blur(2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
 
         /* ANIMATIONS */
@@ -218,6 +201,30 @@
             70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
             100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
         }
+
+        /* VIDEO CONTROLS OVERLAY */
+        .audio-trigger {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 30;
+            background: rgba(15, 26, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .audio-trigger:hover {
+            background: var(--eco);
+            border-color: transparent;
+        }
     </style>
 </head>
 
@@ -225,38 +232,40 @@
 
 <div id="progress-bar"></div>
 
-<nav id="navbar" class="fixed top-0 w-full z-50 py-5 px-6 md:px-12">
+<nav id="navbar" class="fixed top-0 w-full z-50 py-5 px-6 md:px-12 text-white">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="#" class="text-2xl text-white font-bold tracking-widest font-display">
+        <a href="#" id="nav-logo" class="text-2xl font-bold tracking-widest font-display text-white">
             GRUPO<span style="color:var(--eco)">LIMPIA</span>
         </a>
 
-        <div class="hidden md:flex gap-8 text-sm text-white/90">
-            <a href="#marca">La Marca</a>
-            <a href="#video-promocional">Infraestructura</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contacto">Contacto</a>
+        <div id="nav-links" class="hidden md:flex gap-8 text-sm font-medium text-white/90">
+            <a href="#marca" class="hover:text-emerald-400 transition">La Marca</a>
+            <a href="#producto-estrella" class="hover:text-emerald-400 transition">Fórmula Eco</a>
+            <a href="#video-promocional" class="hover:text-emerald-400 transition">Infraestructura</a>
+            <a href="#servicios" class="hover:text-emerald-400 transition">Servicios</a>
+            <a href="#faq" class="hover:text-emerald-400 transition">FAQ</a>
+            <a href="#contacto" class="hover:text-emerald-400 transition">Contacto</a>
         </div>
 
-        <button id="hamburger" class="md:hidden text-white text-2xl">
+        <button id="hamburger" class="md:hidden text-2xl" aria-label="Menú">
             <i class="fas fa-bars"></i>
         </button>
     </div>
 
-    <div id="mobile-menu" class="md:hidden bg-white rounded-2xl shadow-xl border border-gray-100">
-        <div class="flex flex-col p-6 gap-5 text-gray-700">
-            <a href="#marca" class="mobile-link">La Marca</a>
-            <a href="#video-promocional" class="mobile-link">Infraestructura</a>
-            <a href="#servicios" class="mobile-link">Servicios</a>
-            <a href="#faq" class="mobile-link">FAQ</a>
-            <a href="#contacto" class="mobile-link">Contacto</a>
+    <div id="mobile-menu" class="md:hidden bg-white rounded-2xl shadow-xl border border-gray-100 hidden">
+        <div class="flex flex-col p-6 gap-5 text-gray-700 font-medium">
+            <a href="#marca" class="mobile-link hover:text-emerald-500">La Marca</a>
+            <a href="#producto-estrella" class="mobile-link hover:text-emerald-500">Fórmula Eco</a>
+            <a href="#video-promocional" class="mobile-link hover:text-emerald-500">Infraestructura</a>
+            <a href="#servicios" class="mobile-link hover:text-emerald-500">Servicios</a>
+            <a href="#faq" class="mobile-link hover:text-emerald-500">FAQ</a>
+            <a href="#contacto" class="mobile-link hover:text-emerald-500">Contacto</a>
         </div>
     </div>
 </nav>
 
-<header class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-6">
-    <video autoplay muted loop playsinline class="hero-video">
+<header class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-6" style="background-color: #0f1a14;">
+    <video id="hero-vid" autoplay muted loop playsinline class="hero-video">
         <source src="cartagena fl.mp4" type="video/mp4">
     </video>
 
@@ -271,11 +280,11 @@
 
         <h1 class="font-display reveal text-5xl md:text-7xl text-white font-light mt-8 leading-tight">
             Espacios impecables.<br>
-            <span class="italic text-emerald-400">Limpieza cinematográfica</span>
+            <span class="text-emerald-400 font-normal">Alta Gama Corporativa</span>
         </h1>
 
-        <p class="reveal text-white/90 text-lg md:text-xl max-w-2xl mx-auto mt-8 leading-relaxed">
-            Protocolos ecológicos premium para hoteles, empresas y proyectos industriales de alto nivel.
+        <p class="reveal text-white/90 text-lg md:text-xl max-w-2xl mx-auto mt-8 leading-relaxed font-light">
+            Soluciones integrales y protocolos institucionales premium para hoteles, complejos empresariales y proyectos industriales.
         </p>
 
         <div class="reveal flex flex-col sm:flex-row gap-5 justify-center mt-12">
@@ -311,7 +320,7 @@
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.06),transparent_50%)]"></div>
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
         <div class="reveal">
-            <span class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-emerald-400">
+            <span class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/20 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-emerald-400">
                 Filosofía Corporativa
             </span>
 
@@ -320,41 +329,46 @@
                 <span style="color:var(--eco)">lo que amas</span>
             </h2>
 
-            <p class="text-neutral-400 mt-8 leading-relaxed text-lg">
+            <p class="text-neutral-400 mt-8 leading-relaxed text-lg font-light">
                 Nuestra visión transciende la limpieza convencional; representa una experiencia de lujo institucional, cuidado ambiental y presentación impecable diseñada para las marcas y organizaciones más exigentes del país.
             </p>
         </div>
 
-        <div class="reveal">
+        <div class="reveal relative group">
             <div class="overflow-hidden rounded-3xl shadow-2xl bg-black border border-neutral-800 aspect-video relative">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                <video id="marca-vid" autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="limpia.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
             </div>
+            <button class="audio-trigger" onclick="toggleAudio('marca-vid', this)">
+                <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+            </button>
         </div>
     </div>
 </section>
 
 <section id="producto-estrella" class="py-24 px-6 md:px-12 bg-gray-50 overflow-hidden">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div class="relative reveal-left">
-            <div class="absolute -inset-4 rounded-3xl opacity-10 blur-2xl" style="background:var(--eco)"></div>
-            <img src="proyecto-limpia.webp" alt="Fórmula premium de Grupo Limpia" class="relative rounded-2xl shadow-2xl w-full object-cover aspect-square md:aspect-auto border border-gray-100" loading="lazy">
-            <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl hidden md:flex flex-col items-center border border-gray-50">
-                <p class="font-display text-3xl font-semibold" style="color:var(--eco)">100%</p>
-                <p class="text-xs text-gray-500 font-medium tracking-wide uppercase mt-1">Eficiente</p>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-6 reveal relative group">
+            <div class="overflow-hidden rounded-3xl shadow-2xl bg-black border border-gray-200 aspect-video relative">
+                <video id="marketing-vid" autoplay muted loop playsinline class="w-full h-full object-cover">
+                    <source src="video-marketing.mp4" type="video/mp4">
+                </video>
             </div>
+            <button class="audio-trigger" onclick="toggleAudio('marketing-vid', this)">
+                <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+            </button>
         </div>
 
-        <div class="reveal-right">
-            <span class="eco-badge mb-5"><i class="fas fa-flask text-xs"></i> Ciencia Ecológica</span>
+        <div class="lg:col-span-6 reveal">
+            <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-xs uppercase tracking-widest font-medium mb-5"><i class="fas fa-flask text-xs"></i> Ciencia Ecológica</span>
             <h2 class="font-display text-3xl md:text-5xl font-light mb-6 text-gray-900 leading-snug">
                 El poder de nuestro<br>
-                <em style="color:var(--eco)">Limpia Grasa</em> Exclusivo
+                <em style="color:var(--eco); font-style: normal;">Limpia Grasa</em> Exclusivo
             </h2>
             <p class="text-gray-500 font-light mb-10 leading-relaxed text-base md:text-lg">
-                Desarrollamos soluciones avanzadas sin activos abrasivos. Nuestro producto estrella es un desengrasante orgánico de alta concentración, avalado para las exigentes normativas de cocinas de hotelería, restaurantes industriales y espacios residenciales de lujo.
+                Desarrollamos soluciones avanzadas sin activos abrasivos. Nuestro producto estrella es un desengrasante orgánico de alta concentración, avalado para las exigentes normativas de cocinas de hotelería, mudanzas de nivel corporativo y espacios de alto nivel.
             </p>
             <ul class="space-y-6">
                 <li class="flex items-start gap-5">
@@ -364,15 +378,6 @@
                     <div>
                         <strong class="text-gray-900 font-medium text-lg">Acción fulminante</strong>
                         <p class="text-gray-500 font-light text-sm mt-1">Remueve grasas polimerizadas y aceites sin dejar residuos contaminantes.</p>
-                    </div>
-                </li>
-                <li class="flex items-start gap-5">
-                    <span class="mt-1 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--eco-light)">
-                        <i class="fas fa-shield-halved text-sm" style="color:var(--eco-dark)"></i>
-                    </span>
-                    <div>
-                        <strong class="text-gray-900 font-medium text-lg">Inocuidad total</strong>
-                        <p class="text-gray-500 font-light text-sm mt-1">Protección estricta de superficies nobles como acero inoxidable y piedras naturales.</p>
                     </div>
                 </li>
             </ul>
@@ -391,9 +396,12 @@
             Capacidad Operativa e <em style="color:var(--eco); font-style: normal;">Infraestructura</em>
         </h2>
         <div class="overflow-hidden rounded-3xl shadow-2xl reveal group bg-black relative aspect-video max-w-4xl mx-auto border border-gray-100">
-            <video id="main-comercial" controls poster="proyecto-limpia.webp" playsinline class="w-full h-full object-cover">
+            <video id="main-comercial" autoplay muted loop playsinline class="w-full h-full object-cover">
                 <source src="Flow_202605021414%20(1).mp4" type="video/mp4">
             </video>
+            <button class="audio-trigger" onclick="toggleAudio('main-comercial', this)">
+                <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+            </button>
         </div>
         <p class="mt-8 text-gray-500 font-light text-base md:text-lg reveal max-w-2xl mx-auto">
             Procesos mecánicos de precisión: operarios uniformados, equipos industriales especializados y un riguroso cumplimiento de cronogramas para operaciones corporativas.
@@ -409,26 +417,26 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100">
+            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100 reveal">
                 <i class="fas fa-building text-4xl mb-6 text-emerald-500"></i>
                 <h3 class="text-2xl font-semibold mb-4">Limpieza Corporativa</h3>
-                <p class="text-gray-500 leading-relaxed">
+                <p class="text-gray-500 leading-relaxed font-light">
                     Protocolos especializados para oficinas, hoteles de cadena y grandes complejos administrativos.
                 </p>
             </div>
 
-            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100">
+            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100 reveal">
                 <i class="fas fa-kitchen-set text-4xl mb-6 text-emerald-500"></i>
                 <h3 class="text-2xl font-semibold mb-4">Cocinas Industriales</h3>
-                <p class="text-gray-500 leading-relaxed">
+                <p class="text-gray-500 leading-relaxed font-light">
                     Desengrase profesional estructural y sanitización profunda certificada para plantas de alimentos.
                 </p>
             </div>
 
-            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100">
+            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100 reveal">
                 <i class="fas fa-hard-hat text-4xl mb-6 text-emerald-500"></i>
                 <h3 class="text-2xl font-semibold mb-4">Limpieza Post-Obra</h3>
-                <p class="text-gray-500 leading-relaxed">
+                <p class="text-gray-500 leading-relaxed font-light">
                     Acondicionamiento crítico y entrega fina de proyectos inmobiliarios y comerciales de gran escala.
                 </p>
             </div>
@@ -438,10 +446,10 @@
 
 <section id="faq" class="py-24 px-6 md:px-12 bg-white">
     <div class="max-w-3xl mx-auto">
-        <h2 class="font-display text-5xl text-center mb-14">Preguntas Frecuentes</h2>
+        <h2 class="font-display text-5xl text-center mb-14 reveal">Preguntas Frecuentes</h2>
 
-        <div class="faq-item">
-            <button class="faq-btn" aria-expanded="false">
+        <div class="faq-item reveal">
+            <button class="faq-btn font-medium" aria-expanded="false">
                 ¿Cómo gestionan la cobertura nacional para proyectos multisede?
                 <i class="fas fa-plus faq-icon"></i>
             </button>
@@ -450,8 +458,8 @@
             </div>
         </div>
 
-        <div class="faq-item mt-2">
-            <button class="faq-btn" aria-expanded="false">
+        <div class="faq-item mt-2 reveal">
+            <button class="faq-btn font-medium" aria-expanded="false">
                 ¿Sus soluciones eco-biodegradables cuentan con fichas de seguridad técnica?
                 <i class="fas fa-plus faq-icon"></i>
             </button>
@@ -464,7 +472,7 @@
 
 <section id="contacto" class="py-24 px-6 md:px-12 bg-[#0f1a14]">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-        <div>
+        <div class="reveal">
             <h2 class="font-display text-5xl text-white leading-tight"> Cotiza tu proyecto </h2>
             <p class="text-gray-400 mt-4 font-light">Compártanos las especificaciones técnicas de su sede. Un consultor comercial estructurará una oferta a la medida.</p>
 
@@ -485,7 +493,7 @@
             </form>
         </div>
 
-        <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-800 relative h-full min-h-[450px]">
+        <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-800 relative h-full min-h-[450px] reveal">
             <iframe
                 title="Mapa Grupo Limpia"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125553.11181289196!2d-75.52627041441461!3d10.422619472651478"
@@ -516,15 +524,50 @@
 </a>
 
 <script>
-    // NAVBAR
+    // AUDIO CONTROLLER INTERACTION EFFECT
+    function toggleAudio(videoId, button) {
+        const video = document.getElementById(videoId);
+        const icon = button.querySelector('i');
+        const text = button.querySelector('span');
+        
+        if (video.muted) {
+            video.muted = false;
+            icon.className = "fas fa-volume-up text-emerald-400";
+            text.innerText = "Silenciar";
+        } else {
+            video.muted = true;
+            icon.className = "fas fa-volume-mute";
+            text.innerText = "Activar Sonido";
+        }
+    }
+
+    // NAVBAR OPTIMIZED CONTROLLER
     const navbar = document.getElementById('navbar');
+    const navLogo = document.getElementById('nav-logo');
+    const navLinks = document.getElementById('nav-links');
 
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        const isScrolled = window.scrollY > 40;
+        navbar.classList.toggle('scrolled', isScrolled);
+        
+        if (isScrolled) {
+            navbar.classList.remove('text-white');
+            navbar.classList.add('text-neutral-800');
+            navLogo.classList.remove('text-white');
+            navLogo.classList.add('text-neutral-900');
+            navLinks.classList.remove('text-white/90');
+            navLinks.classList.add('text-neutral-600');
+        } else {
+            navbar.classList.remove('text-neutral-800');
+            navbar.classList.add('text-white');
+            navLogo.classList.remove('text-neutral-900');
+            navLogo.classList.add('text-white');
+            navLinks.classList.remove('text-neutral-600');
+            navLinks.classList.add('text-white/90');
+        }
 
         const scrollTop = document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - window.innerHeight;
-
         document.getElementById('progress-bar').style.width = (scrollTop / height) * 100 + '%';
     }, { passive: true });
 
@@ -533,11 +576,13 @@
     const mobileMenu = document.getElementById('mobile-menu');
 
     hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
         mobileMenu.classList.toggle('mobile-open');
     });
 
     document.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('mobile-open');
         });
     });
@@ -560,20 +605,20 @@
         });
     });
 
-    // REVEAL
+    // REVEAL INTERSECTION OBSERVER
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: .1 });
+    }, { threshold: .05 });
 
     document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
     });
 
-    // FORM
+    // FORM HANDLER
     document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
 
