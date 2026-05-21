@@ -72,6 +72,10 @@
         /* WHATSAPP FLOAT */
         .whatsapp-float { position: fixed; right: 25px; bottom: 25px; width: 60px; height: 60px; border-radius: 50%; background: #25d366; color: white; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 999; box-shadow: 0 10px 30px rgba(37,211,102,.4); animation: pulse 2s infinite; }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); } 70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+        /* VIDEO CONTROLS OVERLAY */
+        .audio-trigger { position: absolute; bottom: 20px; right: 20px; z-index: 30; background: rgba(15, 26, 20, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 999px; font-size: 12px; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.3s ease; }
+        .audio-trigger:hover { background: var(--eco); border-color: transparent; }
     </style>
 </head>
 
@@ -181,16 +185,14 @@
 
         <div class="reveal relative group">
             <div class="overflow-hidden rounded-3xl shadow-2xl bg-black border border-neutral-800 aspect-video relative">
-                <video id="marca-vid" playsinline class="w-full h-full object-cover">
+                <video id="marca-vid" muted playsinline class="w-full h-full object-cover scroll-video">
                     <source src="limpia.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                 
-                <div class="absolute inset-0 flex items-center justify-center cursor-pointer transition-opacity duration-300" onclick="playVideo('marca-vid', this)">
-                    <div class="w-20 h-20 bg-emerald-500/90 rounded-full flex items-center justify-center text-white text-3xl shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:scale-110 transition-transform backdrop-blur-sm">
-                        <i class="fas fa-play ml-2"></i>
-                    </div>
-                </div>
+                <button class="audio-trigger" onclick="toggleAudio('marca-vid', this)">
+                    <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+                </button>
             </div>
         </div>
     </div>
@@ -200,15 +202,13 @@
     <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div class="lg:col-span-6 reveal relative group">
             <div class="overflow-hidden rounded-3xl shadow-2xl bg-black border border-gray-200 aspect-video relative">
-                <video id="marketing-vid" playsinline class="w-full h-full object-cover">
+                <video id="marketing-vid" muted playsinline class="w-full h-full object-cover scroll-video">
                     <source src="video-marketing.mp4" type="video/mp4">
                 </video>
                 
-                <div class="absolute inset-0 flex items-center justify-center cursor-pointer transition-opacity duration-300" onclick="playVideo('marketing-vid', this)">
-                    <div class="w-20 h-20 bg-emerald-500/90 rounded-full flex items-center justify-center text-white text-3xl shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:scale-110 transition-transform backdrop-blur-sm">
-                        <i class="fas fa-play ml-2"></i>
-                    </div>
-                </div>
+                <button class="audio-trigger" onclick="toggleAudio('marketing-vid', this)">
+                    <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+                </button>
             </div>
         </div>
 
@@ -247,15 +247,13 @@
             Capacidad Operativa e <em style="color:var(--eco); font-style: normal;">Infraestructura</em>
         </h2>
         <div class="overflow-hidden rounded-3xl shadow-2xl reveal group bg-black relative aspect-video max-w-4xl mx-auto border border-gray-100">
-            <video id="main-comercial" playsinline class="w-full h-full object-cover">
+            <video id="main-comercial" muted playsinline class="w-full h-full object-cover scroll-video">
                 <source src="Flow_202605021414%20(1).mp4" type="video/mp4">
             </video>
 
-            <div class="absolute inset-0 flex items-center justify-center cursor-pointer transition-opacity duration-300" onclick="playVideo('main-comercial', this)">
-                <div class="w-20 h-20 bg-emerald-500/90 rounded-full flex items-center justify-center text-white text-3xl shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:scale-110 transition-transform backdrop-blur-sm">
-                    <i class="fas fa-play ml-2"></i>
-                </div>
-            </div>
+            <button class="audio-trigger" onclick="toggleAudio('main-comercial', this)">
+                <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+            </button>
         </div>
         <p class="mt-8 text-gray-500 font-light text-base md:text-lg reveal max-w-2xl mx-auto">
             Procesos mecánicos de precisión: operarios uniformados, equipos industriales especializados y un riguroso cumplimiento de cronogramas para operaciones corporativas.
@@ -378,18 +376,43 @@
 </a>
 
 <script>
-    // VIDEO PLAY FUNCIONALIDAD CON CONTROLES NATIVOS
-    function playVideo(videoId, overlayElement) {
+    // AUTO-PLAY AL HACER SCROLL (INTERSECTION OBSERVER PARA VIDEOS)
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                // El video entra en pantalla: intenta darle play
+                video.play().catch(e => console.log("Autoplay prevenido por el navegador:", e));
+            } else {
+                // El video sale de la pantalla: lo pausa para ahorrar recursos
+                video.pause();
+            }
+        });
+    }, { threshold: 0.3 }); // Se activa cuando el 30% del video es visible
+
+    // Aplica el observador a todos los videos con la clase 'scroll-video'
+    document.querySelectorAll('.scroll-video').forEach(video => {
+        videoObserver.observe(video);
+    });
+
+    // AUDIO CONTROLLER & PLAY/PAUSE LOGIC
+    function toggleAudio(videoId, button) {
         const video = document.getElementById(videoId);
+        const icon = button.querySelector('i');
+        const text = button.querySelector('span');
         
-        // Quitar la capa del botón para que se vea limpio
-        overlayElement.style.opacity = '0';
-        overlayElement.style.pointerEvents = 'none';
-        
-        // Activar controles, habilitar el sonido y darle play
-        video.setAttribute('controls', 'true');
-        video.muted = false;
-        video.play();
+        if (video.muted) {
+            video.muted = false;
+            // Si el video había terminado, vuelve a empezar al prender el audio
+            if (video.ended) { video.currentTime = 0; }
+            video.play();
+            icon.className = "fas fa-volume-up text-emerald-400";
+            text.innerText = "Silenciar";
+        } else {
+            video.muted = true;
+            icon.className = "fas fa-volume-mute";
+            text.innerText = "Activar Sonido";
+        }
     }
 
     // NAVBAR OPTIMIZED CONTROLLER
@@ -456,7 +479,7 @@
         });
     });
 
-    // REVEAL INTERSECTION OBSERVER
+    // REVEAL INTERSECTION OBSERVER (Animaciones de aparición)
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
