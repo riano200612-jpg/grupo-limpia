@@ -1,30 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Grupo Limpia — Servicios profesionales de limpieza premium y soluciones eco-biodegradables con cobertura nacional en Colombia." />
+    <meta name="keywords" content="limpieza profesional, limpieza industrial, limpieza corporativa, Grupo Limpia, Cartagena" />
+    <meta name="author" content="Grupo Limpia" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#10b981" />
+
+    <title>Grupo Limpia | Limpieza Profesional Premium</title>
+
+    <meta property="og:title" content="Grupo Limpia | Limpieza Profesional Premium" />
+    <meta property="og:description" content="Soluciones ecológicas y limpieza de alto nivel para empresas y hogares." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="proyecto-limpia.webp" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <link rel="preload" href="cartagena%20(1).mp4" as="video" type="video/mp4" />
+
+    <style>
+        :root {
+            --eco: #10b981;
+            --eco-dark: #059669;
+            --eco-light: #d1fae5;
+            --ink: #0f1a14;
+            --mist: #f5f7f5;
+            --stone: #6b7280;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--mist); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        .font-display { font-family: 'Cormorant Garamond', serif; }
+        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--eco); z-index: 9999; }
+
+        /* NAVBAR PREMIUM TRANSITIONS */
+        #navbar { transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease, color 0.4s ease; }
+        #navbar .nav-link, #navbar .nav-logo { transition: color 0.3s ease; }
+        #navbar.scrolled { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(14px); box-shadow: 0 10px 30px rgba(0, 0, 0, .05); padding-top: 1rem; padding-bottom: 1rem; }
+
+        /* ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all .9s cubic-bezier(.4,0,.2,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* CARDS & FAQ */
+        .service-card { transition: .4s ease; will-change: transform; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px rgba(0,0,0,.06); }
+        .faq-item { border-bottom: 1px solid #e5e7eb; }
+        .faq-btn { width: 100%; padding: 1.4rem 0; background: none; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 1rem; text-align: left; }
+        .faq-content { max-height: 0; overflow: hidden; transition: .4s ease; color: var(--stone); }
+        .faq-item.active .faq-content { max-height: 220px; padding-bottom: 1.5rem; }
+        .faq-icon { transition: .3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--eco); }
+
+        /* FORM */
+        .form-input { width: 100%; padding: 16px 20px; background: #16231c; border: 1px solid #24352b; border-radius: 14px; color: white; outline: none; transition: .3s ease; }
+        .form-input:focus { border-color: var(--eco); box-shadow: 0 0 0 4px rgba(16,185,129,.15); }
+
+        /* MOBILE MENU */
+        #mobile-menu { max-height: 0; overflow: hidden; transition: .4s ease; }
+        #mobile-menu.mobile-open { max-height: 500px; margin-top: 12px; border-width: 1px; }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float { position: fixed; right: 25px; bottom: 25px; width: 60px; height: 60px; border-radius: 50%; background: #25d366; color: white; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 999; box-shadow: 0 10px 30px rgba(37,211,102,.4); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); } 70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+        /* VIDEO CONTROLS OVERLAY */
+        .audio-trigger { position: absolute; bottom: 20px; right: 20px; z-index: 30; background: rgba(15, 26, 20, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 999px; font-size: 12px; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.3s ease; }
+        .audio-trigger:hover { background: var(--eco); border-color: transparent; }
+    </style>
+</head>
+
+<body>
+
+<div id="progress-bar"></div>
+
+<nav id="navbar" class="fixed top-0 w-full z-50 py-5 px-6 md:px-12 text-white flex justify-center">
+    <div class="w-full max-w-7xl flex justify-between items-center">
+        <a href="#" id="nav-logo" class="text-2xl font-bold tracking-widest font-display text-white">
+            GRUPO<span style="color:var(--eco)">LIMPIA</span>
+        </a>
+
+        <div id="nav-links" class="hidden md:flex gap-8 text-sm font-medium text-white/90">
+            <a href="#marca" class="hover:text-emerald-400 transition">La Marca</a>
+            <a href="#producto-estrella" class="hover:text-emerald-400 transition">Fórmula Eco</a>
+            <a href="#video-promocional" class="hover:text-emerald-400 transition">Infraestructura</a>
+            <a href="#servicios" class="hover:text-emerald-400 transition">Servicios</a>
+            <a href="#faq" class="hover:text-emerald-400 transition">FAQ</a>
+            <a href="#contacto" class="hover:text-emerald-400 transition">Contacto</a>
+        </div>
+
+        <button id="hamburger" class="md:hidden text-2xl" aria-label="Menú">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden bg-white rounded-2xl shadow-xl border border-gray-100 hidden absolute top-16 left-6 right-6">
+        <div class="flex flex-col p-6 gap-5 text-gray-700 font-medium text-center">
+            <a href="#marca" class="mobile-link hover:text-emerald-500">La Marca</a>
+            <a href="#producto-estrella" class="mobile-link hover:text-emerald-500">Fórmula Eco</a>
+            <a href="#video-promocional" class="mobile-link hover:text-emerald-500">Infraestructura</a>
+            <a href="#servicios" class="mobile-link hover:text-emerald-500">Servicios</a>
+            <a href="#faq" class="mobile-link hover:text-emerald-500">FAQ</a>
+            <a href="#contacto" class="mobile-link hover:text-emerald-500">Contacto</a>
+        </div>
+    </div>
+</nav>
+
 <header class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-6" style="background-color: #0f1a14;">
     <video id="hero-vid" autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.05);">
-        <source src="cartagena (1).mp4" type="video/mp4">
+        <source src="cartagena%20(1).mp4" type="video/mp4">
     </video>
 
-    <div class="absolute inset-0 bg-gradient-to-bottom rgba(0,0,0,.65) to rgba(0,0,0,.8) backdrop-blur-[1px]" style="background: linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.4), rgba(0,0,0,.8));"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(15,26,20,0.7), rgba(15,26,20,0.5), rgba(15,26,20,0.85));"></div>
 
-    <div class="relative z-10 w-full max-w-5xl mx-auto pt-16">
+    <div class="relative z-10 w-full max-w-4xl mx-auto pt-16 flex flex-col items-center">
         <div class="reveal">
             <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-xs uppercase tracking-widest backdrop-blur-md">
                 <i class="fas fa-earth-americas"></i> Estándar de Calidad con Proyección Nacional
             </span>
         </div>
 
-        <h1 class="font-display reveal text-5xl md:text-7xl text-white font-light mt-8 leading-tight">
+        <h1 class="font-display reveal text-5xl md:text-7xl text-white font-light mt-8 leading-tight text-center">
             Espacios impecables.<br>
             <span class="text-emerald-400 font-normal">Alta Gama Corporativa</span>
         </h1>
 
-        <p class="reveal text-white/90 text-lg md:text-xl max-w-2xl mx-auto mt-8 leading-relaxed font-light">
-            Soluciones integrales y protocolos institucionales premium para hoteles, complejos empresariales y proyectos industriales desde el corazón de Cartagena.
+        <p class="reveal text-white/90 text-lg md:text-xl max-w-2xl mx-auto mt-8 leading-relaxed font-light text-center">
+            Soluciones integrales y protocolos institucionales premium para hoteles, complejos empresariales y proyectos industriales.
         </p>
 
-        <div class="reveal flex flex-col sm:flex-row gap-5 justify-center mt-12">
-            <a href="#contacto" class="px-8 py-4 rounded-full text-white font-medium shadow-2xl transition hover:scale-105" style="background:var(--eco)">
+        <div class="reveal mt-12">
+            <a href="#contacto" class="inline-block px-8 py-4 rounded-full text-white font-medium shadow-2xl transition hover:scale-105" style="background:var(--eco)">
                 Solicitar Cotización Nacional
             </a>
         </div>
     </div>
 </header>
+
+<section class="py-16 px-6 md:px-12 bg-white border-b border-gray-100 flex justify-center">
+    <div class="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div class="pl-6 border-l-2 border-emerald-500 reveal">
+            <p class="font-display text-4xl font-semibold text-gray-900">+350</p>
+            <p class="text-sm text-gray-500 mt-2 font-light">Operaciones exitosas</p>
+        </div>
+        <div class="pl-6 border-l-2 border-emerald-500 reveal delay-1">
+            <p class="font-display text-4xl font-semibold text-gray-900">100%</p>
+            <p class="text-sm text-gray-500 mt-2 font-light">Eco Sostenible</p>
+        </div>
+        <div class="pl-6 border-l-2 border-emerald-500 reveal delay-2">
+            <p class="font-display text-4xl font-semibold text-gray-900">+5</p>
+            <p class="text-sm text-gray-500 mt-2 font-light">Años de experiencia</p>
+        </div>
+        <div class="pl-6 border-l-2 border-emerald-500 reveal delay-3">
+            <p class="font-display text-4xl font-semibold text-gray-900">Cobertura</p>
+            <p class="text-sm text-gray-500 mt-2 font-light">Expansión Nacional 2026</p>
+        </div>
+    </div>
+</section>
+
+<section id="marca" class="py-24 px-6 md:px-12 bg-neutral-900 text-white relative overflow-hidden flex justify-center">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.06),transparent_50%)]"></div>
+    <div class="w-full max-w-6xl grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div class="reveal">
+            <span class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-full text-xs uppercase tracking-widest text-emerald-400">
+                Filosofía Corporativa
+            </span>
+            <h2 class="font-display text-5xl mt-6 leading-tight">
+                El arte de cuidar<br>
+                <span style="color:var(--eco)">lo que amas</span>
+            </h2>
+            <p class="text-neutral-400 mt-8 leading-relaxed text-lg font-light">
+                Nuestra visión transciende la limpieza convencional; representa una experiencia de lujo institucional, cuidado ambiental y presentación impecable diseñada para las marcas y organizaciones más exigentes del país.
+            </p>
+        </div>
+
+        <div class="reveal relative group">
+            <div class="overflow-hidden rounded-3xl shadow-2xl bg-black border border-neutral-800 aspect-video relative">
+                <video id="marca-vid" autoplay muted playsinline class="w-full h-full object-cover">
+                    <source src="limpia.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+            <button class="audio-trigger" onclick="toggleAudio('marca-vid', this)">
+                <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="producto-estrella" class="py-24 px-6 md:px-12 bg-gray-50 overflow-hidden flex justify-center">
+    <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-6 reveal relative group">
+            <div class="overflow-hidden rounded-3xl shadow-2xl bg-black border border-gray-200 aspect-video relative">
+                <video id="marketing-vid" autoplay muted playsinline class="w-full h-full object-cover">
+                    <source src="video-marketing.mp4" type="video/mp4">
+                </video>
+            </div>
+            <button class="audio-trigger" onclick="toggleAudio('marketing-vid', this)">
+                <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+            </button>
+        </div>
+
+        <div class="lg:col-span-6 reveal">
+            <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-xs uppercase tracking-widest font-medium mb-5"><i class="fas fa-flask text-xs"></i> Ciencia Ecológica</span>
+            <h2 class="font-display text-3xl md:text-5xl font-light mb-6 text-gray-900 leading-snug">
+                El poder de nuestro<br>
+                <em style="color:var(--eco); font-style: normal;">Limpia Grasa</em> Exclusivo
+            </h2>
+            <p class="text-gray-500 font-light mb-10 leading-relaxed text-base md:text-lg">
+                Desarrollamos soluciones avanzadas sin activos abrasivos. Nuestro producto estrella es un desengrasante orgánico de alta concentración, avalado para las exigentes normativas de cocinas de hotelería, mudanzas de nivel corporativo y espacios de alto nivel.
+            </p>
+            <ul class="space-y-6">
+                <li class="flex items-start gap-5">
+                    <span class="mt-1 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:var(--eco-light)">
+                        <i class="fas fa-bolt text-sm" style="color:var(--eco-dark)"></i>
+                    </span>
+                    <div>
+                        <strong class="text-gray-900 font-medium text-lg">Acción fulminante</strong>
+                        <p class="text-gray-500 font-light text-sm mt-1">Remueve grasas polimerizadas y aceites sin dejar residuos contaminantes.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="video-promocional" class="py-24 px-6 md:px-12 bg-white flex justify-center">
+    <div class="w-full max-w-5xl text-center">
+        <div class="reveal mb-4">
+            <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-xs uppercase tracking-widest font-medium">
+                <i class="fas fa-gears text-xs"></i> Tecnología Aplicada
+            </span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-light mb-12 reveal">
+            Capacidad Operativa e <em style="color:var(--eco); font-style: normal;">Infraestructura</em>
+        </h2>
+        <div class="overflow-hidden rounded-3xl shadow-2xl reveal group bg-black relative aspect-video max-w-4xl mx-auto border border-gray-100">
+            <video id="main-comercial" autoplay muted playsinline class="w-full h-full object-cover">
+                <source src="Flow_202605021414%20(1).mp4" type="video/mp4">
+            </video>
+            <button class="audio-trigger" onclick="toggleAudio('main-comercial', this)">
+                <i class="fas fa-volume-mute"></i> <span>Activar Sonido</span>
+            </button>
+        </div>
+        <p class="mt-8 text-gray-500 font-light text-base md:text-lg reveal max-w-2xl mx-auto">
+            Procesos mecánicos de precisión: operarios uniformados, equipos industriales especializados y un riguroso cumplimiento de cronogramas para operaciones corporativas.
+        </p>
+    </div>
+</section>
+
+<section id="servicios" class="py-24 px-6 md:px-12 bg-gray-50 border-t border-gray-100 flex justify-center">
+    <div class="w-full max-w-6xl">
+        <div class="text-center mb-16 reveal">
+            <h2 class="font-display text-5xl">Servicios Premium</h2>
+            <div class="mt-4 mx-auto" style="width: 40px; height: 2px; background: var(--eco);"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100 reveal">
+                <i class="fas fa-building text-4xl mb-6 text-emerald-500"></i>
+                <h3 class="text-2xl font-semibold mb-4">Limpieza Corporativa</h3>
+                <p class="text-gray-500 leading-relaxed font-light">
+                    Protocolos especializados para oficinas, hoteles de cadena y grandes complejos administrativos.
+                </p>
+            </div>
+
+            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100 reveal">
+                <i class="fas fa-kitchen-set text-4xl mb-6 text-emerald-500"></i>
+                <h3 class="text-2xl font-semibold mb-4">Cocinas Industriales</h3>
+                <p class="text-gray-500 leading-relaxed font-light">
+                    Desengrase profesional estructural y sanitización profunda certificada para plantas de alimentos.
+                </p>
+            </div>
+
+            <div class="service-card bg-white p-10 rounded-3xl border border-gray-100 reveal">
+                <i class="fas fa-hard-hat text-4xl mb-6 text-emerald-500"></i>
+                <h3 class="text-2xl font-semibold mb-4">Limpieza Post-Obra</h3>
+                <p class="text-gray-500 leading-relaxed font-light">
+                    Acondicionamiento crítico y entrega fina de proyectos inmobiliarios y comerciales de gran escala.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="py-24 px-6 md:px-12 bg-white flex justify-center">
+    <div class="w-full max-w-3xl">
+        <h2 class="font-display text-5xl text-center mb-14 reveal">Preguntas Frecuentes</h2>
+
+        <div class="faq-item reveal">
+            <button class="faq-btn font-medium" aria-expanded="false">
+                ¿Cómo gestionan la cobertura nacional para proyectos multisede?
+                <i class="fas fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-content">
+                Estandarizamos las operaciones bajo un mismo manual de calidad e infraestructura, coordinando equipos logísticos regionales para asegurar un estándar idéntico en cualquier ciudad de Colombia.
+            </div>
+        </div>
+
+        <div class="faq-item mt-2 reveal">
+            <button class="faq-btn font-medium" aria-expanded="false">
+                ¿Sus soluciones eco-biodegradables cuentan con fichas de seguridad técnica?
+                <i class="fas fa-plus faq-icon"></i>
+            </button>
+            <div class="faq-content">
+                Sí. Todos nuestros insumos y productos estrella cumplen con las hojas de seguridad (HDS) y certificaciones ambientales requeridas para auditorías nacionales e internacionales.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="py-24 px-6 md:px-12 bg-[#0f1a14] flex justify-center">
+    <div class="w-full max-w-6xl grid md:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+            <h2 class="font-display text-5xl text-white leading-tight"> Cotiza tu proyecto </h2>
+            <p class="text-gray-400 mt-4 font-light">Compártanos las especificaciones técnicas de su sede. Un consultor comercial estructurará una oferta a la medida.</p>
+
+            <form id="contact-form" class="space-y-5 mt-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <input id="f-name" type="text" placeholder="Tu nombre" class="form-input" required />
+                    <input id="f-phone" type="tel" placeholder="WhatsApp" class="form-input" required />
+                </div>
+                <input id="f-company" type="text" placeholder="Empresa / Organización (opcional)" class="form-input" />
+                <input id="f-area" type="text" placeholder="¿Qué proyecto o tipo de sede necesita cotizar?" class="form-input" required />
+                <textarea id="f-message" rows="4" placeholder="Especificaciones adicionales, metros cuadrados o requerimientos especiales..." class="form-input resize-none"></textarea>
+
+                <button type="submit"
+                        class="w-full py-4 rounded-xl text-white font-medium transition hover:bg-emerald-600 shadow-xl"
+                        style="background:var(--eco)">
+                    Enviar a Dirección Comercial
+                </button>
+            </form>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-800 relative h-full min-h-[450px] reveal">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125550.0526848149!2d-75.58988645479904!3d10.400199738092288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625e1fc5a1c3d%3A0xc3f1f3a5323dd58e!2sCartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1716315505307!5m2!1ses!2sco" 
+                width="100%" 
+                height="100%" 
+                style="border:0; min-height: 450px; filter: contrast(1.1) opacity(0.9);" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none">
+                <p class="text-white font-medium text-base flex items-center gap-3"><i class="fas fa-location-dot" style="color:var(--eco)"></i> Cobertura Corporativa</p>
+                <p class="text-gray-400 text-xs mt-2 font-light">Centro de Operaciones: Región Caribe. Despliegue y distribución logística a nivel nacional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-black py-12 text-center text-gray-500 text-sm border-t border-neutral-900">
+    © 2026 Grupo Limpia · Colombia · Calidad Premium Estandarizada.
+</footer>
+
+<a href="https://wa.me/573001164218?text=Hola,%20me%20interesa%20conocer%20los%20servicios%20y%20cobertura%20nacional%20de%20Grupo%20Limpia"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="whatsapp-float"
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // AUDIO CONTROLLER & PLAY/PAUSE LOGIC
+    function toggleAudio(videoId, button) {
+        const video = document.getElementById(videoId);
+        const icon = button.querySelector('i');
+        const text = button.querySelector('span');
+        
+        if (video.muted) {
+            video.muted = false;
+            // Asegura que si el video había terminado, vuelva a empezar al prender el audio
+            if (video.ended) { video.currentTime = 0; }
+            video.play();
+            icon.className = "fas fa-volume-up text-emerald-400";
+            text.innerText = "Silenciar";
+        } else {
+            video.muted = true;
+            icon.className = "fas fa-volume-mute";
+            text.innerText = "Activar Sonido";
+        }
+    }
+
+    // NAVBAR OPTIMIZED CONTROLLER
+    const navbar = document.getElementById('navbar');
+    const navLogo = document.getElementById('nav-logo');
+    const navLinks = document.getElementById('nav-links');
+
+    window.addEventListener('scroll', () => {
+        const isScrolled = window.scrollY > 40;
+        navbar.classList.toggle('scrolled', isScrolled);
+        
+        if (isScrolled) {
+            navbar.classList.remove('text-white');
+            navbar.classList.add('text-neutral-800');
+            navLogo.classList.remove('text-white');
+            navLogo.classList.add('text-neutral-900');
+            navLinks.classList.remove('text-white/90');
+            navLinks.classList.add('text-neutral-600');
+        } else {
+            navbar.classList.remove('text-neutral-800');
+            navbar.classList.add('text-white');
+            navLogo.classList.remove('text-neutral-900');
+            navLogo.classList.add('text-white');
+            navLinks.classList.remove('text-neutral-600');
+            navLinks.classList.add('text-white/90');
+        }
+
+        const scrollTop = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        document.getElementById('progress-bar').style.width = (scrollTop / height) * 100 + '%';
+    }, { passive: true });
+
+    // MOBILE MENU
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('mobile-open');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('mobile-open');
+        });
+    });
+
+    // FAQ
+    document.querySelectorAll('.faq-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.parentElement;
+            const active = item.classList.contains('active');
+
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+                el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+            });
+
+            if (!active) {
+                item.classList.add('active');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    // REVEAL INTERSECTION OBSERVER
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: .05 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+
+    // FORM HANDLER
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('f-name').value.trim();
+        const phone = document.getElementById('f-phone').value.trim();
+        const company = document.getElementById('f-company').value.trim();
+        const area = document.getElementById('f-area').value.trim();
+        const message = document.getElementById('f-message').value.trim();
+
+        const phoneRegex = /^[0-9+\-\s]{7,20}$/;
+
+        if (!phoneRegex.test(phone)) {
+            alert('Por favor, ingresa un número de teléfono válido.');
+            return;
+        }
+
+        const textLines = [
+            `🌿 *Nueva Solicitud Comercial Nacional - Grupo Limpia*`,
+            ``,
+            `👤 *Contacto:* ${name}`,
+            `📱 *WhatsApp:* ${phone}`,
+            company ? `🏢 *Empresa:* ${company}` : null,
+            `🧹 *Proyecto/Sede:* ${area}`,
+            message ? `💬 *Requerimientos:* ${message}` : null,
+            ``,
+            `_Enviado desde el canal digital de expansión nacional_`
+        ].filter(line => line !== null);
+
+        const text = textLines.join('\n');
+        const url = `https://wa.me/573001164218?text=${encodeURIComponent(text)}`;
+
+        window.open(url, '_blank', 'noopener,noreferrer');
+    });
+</script>
+
+</body>
+</html>
